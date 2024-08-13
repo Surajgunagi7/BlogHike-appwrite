@@ -1,10 +1,9 @@
-/* eslint-disable react-refresh/only-export-components */
 import React, {useId} from 'react'
 
 function Select({
     options,
     label,
-    className = '',
+    className,
     ...props
 },ref) {
     const id = useId();
@@ -24,7 +23,7 @@ function Select({
                         </option>
                     ))
                 }
-            </select>
+        </select>
     </div>
   )
 }

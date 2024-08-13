@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 import { Link, useNavigate, useParams  } from "react-router-dom";
 import service from "../appwrite/config";
 import {Button, Container} from '../components'
@@ -7,14 +7,15 @@ import { useSelector } from "react-redux";
 
 export default function Post() {
     const [post, setPost] = useState(null);
-    const {slug} = useParams();
+    const { slug } = useParams();
     const navigate = useNavigate();
-
     const userData = useSelector((state) => state.auth.userData);
 
     const isAuthor = post && userData ? post.userId === userData.$id : false;
 
     useEffect(() => {
+        console.log("post: ",post);
+        
         if(slug) {
             service.getPost(slug).then((post) => {
                 if(post) setPost(post)
@@ -33,7 +34,7 @@ export default function Post() {
             }
         });
     };
-
+    
     return post ? (
         <div className="py-8">
             <Container>
@@ -57,7 +58,9 @@ export default function Post() {
                 <div className="w-full mb-6">
                     <h1 className="text-2xl font-bold">{post.title}</h1>
                 </div>
-                <div className="browser-css">{parse(post.content)}</div>
+                <div className="browser-css">
+                    {parse(post.content)}
+                </div>
             </Container>
         </div>
     ) : null;

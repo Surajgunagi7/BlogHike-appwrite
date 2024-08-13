@@ -1,6 +1,6 @@
 // Service file related to the appwrite
 import conf from '../conf/conf'
-import {Client, Account, ID} from 'appwrite'
+import { Client, Account, ID } from 'appwrite'
 
 export class AuthService {
     client = new Client();
@@ -19,6 +19,8 @@ export class AuthService {
             if(userAccount) {
                 return this.login({email,password})
             }else {
+                console.log(`Service Error: createAccount`,userAccount);
+                
                 return userAccount
             }
         } catch (error) {
@@ -41,7 +43,6 @@ export class AuthService {
             return await this.account.get();
         } catch (error) {
             console.log("Appwrite Service :: getCurrentAccount :: error ",error);
-            
         }
         return null;
     }

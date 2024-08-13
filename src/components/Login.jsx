@@ -9,7 +9,6 @@ import { useForm } from 'react-hook-form'
 function Login() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
     const {register, handleSubmit} = useForm()
     const [error, setError] = useState("")
 
@@ -19,13 +18,14 @@ function Login() {
             const session = await authService.login(data)
             if(session) {
                 const userData = await authService.getCurrentAccount()
-                if(userData) dispatch(authLogin(userData))
+                if(userData) dispatch(authLogin(userData));
                 navigate("/")
             }
         } catch (error) {
             setError(error.message)
         }
     }
+    
     return (
         <div
             className='flex items-center justify-center w-full'>
@@ -41,7 +41,8 @@ function Login() {
                         <Link
                             to='/signup'
                             className='font-medium text-primary transition-all duration-200 hover:underline'>
-                                Sign Up</Link>
+                                Sign Up
+                        </Link>
                     </p>
                     {error && <p className='text-red-600 mt-8 text-center'>{error}</p>}
                     <form onSubmit={handleSubmit(login)} className='mt-8'>

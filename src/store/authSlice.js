@@ -1,4 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     status: false,
@@ -21,6 +21,6 @@ const authSlice = createSlice({
 })
 
 export const {login, logout} = authSlice.actions
-export default authSlice.reducer
+export default authSlice.reducer;
 
 // One more Improvement is we can create a separate slice to track Posts too
