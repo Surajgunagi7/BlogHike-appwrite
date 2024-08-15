@@ -15,10 +15,12 @@ function Login() {
     const login = async(data) => {
         setError('')
         try {
-            const session = await authService.login(data)
+            const session = await authService.login(data)   // creates a session 
+            
             if(session) {
-                const userData = await authService.getCurrentAccount()
-                if(userData) dispatch(authLogin(userData));
+                const userData = await authService.getCurrentAccount()  // get the userData
+                
+                if(userData) dispatch(authLogin(userData));   // Update it at the Store - [state]
                 navigate("/")
             }
         } catch (error) {
@@ -44,12 +46,13 @@ function Login() {
                                 Sign Up
                         </Link>
                     </p>
-                    {error && <p className='text-red-600 mt-8 text-center'>{error}</p>}
+                    {error && <p className='text-red-600 mt-8 text-center'>{error}</p>}    {/*Invalid password, email messages*/}
+            
                     <form onSubmit={handleSubmit(login)} className='mt-8'>
                         <div className='space-y-5'>
                             <Input 
                                 label="Email: " 
-                                placeholder="Enter your Email" t
+                                placeholder="Enter your Email" 
                                 type="email"
                                 {...register("email", {
                                     required: true,

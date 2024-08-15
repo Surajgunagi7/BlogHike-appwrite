@@ -1,15 +1,28 @@
 import {useEffect, useState} from 'react'
 import service from '../appwrite/config'
+import authService from '../appwrite/auth'
 import {Container, PostCard, Loading} from '../components'
+import { Query } from 'appwrite'
+
 
 function Home() {
     const [posts, setPosts] = useState([])
-
+    
     useEffect(() => {
-        service.getPosts().then((posts) => {
-            if(posts) {
-                setPosts(posts.documents)
-            }
+        authService.getCurrentAccount().then((currentUser) => {
+        if (currentUser) {
+            const queries = [Query.equal("status","active"), Query.equal("userId", currentUser.$id)];
+
+            service.getPosts(queries)
+                .then((posts) => {                              
+                    if(posts.documents.length != 0) {
+                        setPosts(posts.documents)
+                    }else
+                        console.log(`You don't have any posts`);
+                }
+            )
+        } else 
+            console.log(`Not Logged In`);
         })
     },[])
 

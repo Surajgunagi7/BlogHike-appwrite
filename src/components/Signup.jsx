@@ -15,10 +15,10 @@ function Signup() {
     const create = async(data) => {
         setError('')
         try {
-            const userData = await authService.createAccount(data)
-            if(userData) {
-                const userData = await authService.getCurrentAccount()
-                if(userData) dispatch(login(userData));
+            const session = await authService.createAccount(data)      // Also call login - session is created
+            if(session) {
+                const userData = await authService.getCurrentAccount()  // get the userData 
+                if(userData) dispatch(login(userData));                 // update the store
                 navigate('/')
             }
         } catch (error) {
@@ -43,6 +43,7 @@ function Signup() {
                     </Link>
             </p>
             {error && <p className='text-red-600 mt-8 text-center'>{error}</p>}
+
             <form onSubmit={handleSubmit(create)}>
                 <div className='space-y-5'>
                     <Input 

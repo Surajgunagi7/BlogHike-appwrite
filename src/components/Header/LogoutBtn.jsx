@@ -1,13 +1,13 @@
 import {useDispatch} from 'react-redux'
 import authService from '../../appwrite/auth'
-import {logout} from '../../store/authSlice'
+import {logout as clearDataFromState} from '../../store/authSlice'
 
 function LogoutBtn() {
     const dispatch = useDispatch()
 
     const logoutHandler = () => {
         authService.logout().then(() => {
-            dispatch(logout())
+            dispatch(clearDataFromState())      // clears the status and userData 
         })
     }
   return (
