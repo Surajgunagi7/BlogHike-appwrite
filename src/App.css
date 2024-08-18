@@ -1,0 +1,19 @@
+@font-face {
+    font-family: "Poppins";
+    src: url(./assets/Poppins-Medium.ttf);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+    cursor: url(./assets/icons8-select-cursor-18.png),auto;
+}
+
+#root {
+    max-width: 1570px;
+}
+
+button, a {
+    cursor: pointer;
+}

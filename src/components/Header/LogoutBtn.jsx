@@ -2,21 +2,22 @@ import {useDispatch} from 'react-redux'
 import authService from '../../appwrite/auth'
 import {logout as clearDataFromState} from '../../store/authSlice'
 
-function LogoutBtn() {
+function LogoutBtn({className, children = null, ...props}) {
     const dispatch = useDispatch()
 
     const logoutHandler = () => {
         authService.logout().then(() => {
-            dispatch(clearDataFromState())      // clears the status and userData 
+            dispatch(clearDataFromState())      
         })
     }
-  return (
-    <button 
-        className='inline-block px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'
-        onClick={logoutHandler}>
-            Logout
-    </button>
-)
+    return (
+        <button 
+            className={`${className}`}
+            onClick={logoutHandler}
+            {...props}>
+                {children ? {children} : "Logout" }
+        </button>
+    )
 }
 
 export default LogoutBtn

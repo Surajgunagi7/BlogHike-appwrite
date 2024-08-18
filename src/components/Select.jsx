@@ -1,31 +1,35 @@
 import React, {useId} from 'react'
 
-function Select({
+function SelectComp({
     options,
     label,
+    labelClass,
     className,
     ...props
 },ref) {
     const id = useId();
 
-  return (
-    <div className='w-full'>
-        { label && (<label htmlFor={id} className=''></label>)}
-        <select  
-            id={id}
-            ref={ref}
-            {...props}
-            className={`px-3 py-2 rounded-lg bg-white text-black outline-none focus:bg-gray-50 duration-200 border border-gray-200 w-full ${className}`}>
-                {
-                    options?.map((option) => (
-                        <option key={option} value={option}> 
-                            {option}
-                        </option>
-                    ))
-                }
-        </select>
-    </div>
-  )
+    return (
+        <div >
+            { label && (
+                <label htmlFor={id} className={`text-base font-medium text-gray-900 ${labelClass}`}>{label}</label>
+            )}
+            <select  
+                id={id}
+                ref={ref}
+                {...props}
+                className={`${className} mt-2`}>
+                    {
+                        options?.map((option) => (
+                            <option key={option} value={option}> 
+                                {option}
+                            </option>
+                        ))
+                    }
+            </select>
+        </div>
+    )
 }
 
-export default React.forwardRef(Select);
+const Select = React.forwardRef(SelectComp);
+export default Select;

@@ -4,6 +4,7 @@ import service from "../appwrite/config";
 import {Button, Container} from '../components'
 import parse from "html-react-parser";
 import { useSelector } from "react-redux";
+import noImage from '../assets/undraw_images_re_0kll.svg'
 
 export default function Post() {
     const [post, setPost] = useState(null);
@@ -34,32 +35,36 @@ export default function Post() {
     };
     
     return post ? (
-        <div className="py-8">
-            <Container>
-                <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
-                    <img 
-                        src={service.getFilePreview(post.featuredImage)}
-                        alt={post.title}
-                        className="rounded-xl"
-                    />
-                    {
-                        isAuthor && (
-                            <div className="absolute right-6 top-6">
-                                <Link to={`/edit-post/${post.$id}`}>
-                                    <Button bgColor="bg-green-500" className="mr-3">Edit</Button>
-                                </Link>
-                                <Button bgColor="bg-red-500" onClick={deletePost}>Delete</Button>
-                            </div>
-                        )
-                    }
-                </div>
-                <div className="w-full mb-6">
-                    <h1 className="text-2xl font-bold">{post.title}</h1>
-                </div>
-                <div className="browser-css">
+        <Container className="my-32 md:my-36 px-20">
+            <div className="space-y-8">
+                <img 
+                    src={post.featuredImage ? service.getFilePreview(post.featuredImage) : noImage}
+                    alt={post.title}
+                    className="w-full h-64 md:h-96 object-cover rounded-lg shadow-md"
+                />
+                {isAuthor && (
+                    <div className="flex space-x-4">
+                        <Link to={`/edit-post/${post.$id}`}>
+                            <Button 
+                                bgColor="bg-green-600" 
+                                className="px-4 py-2 text-white rounded-md hover:bg-green-600">
+                                    Edit
+                            </Button>
+                        </Link>
+                        <Button 
+                            bgColor="bg-red-500" 
+                            onClick={deletePost} 
+                            className="px-4 py-2 text-white rounded-md hover:bg-red-600">
+                                Delete
+                        </Button>
+                    </div>
+                )}
+                <h1 className="text-3xl md:text-5xl font-bold text-gray-800">{post.title}</h1>
+
+                <div className="prose prose-lg max-w-full text-gray-700">
                     {parse(post.content)}
                 </div>
-            </Container>
-        </div>
+            </div>
+        </Container>
     ) : null;
 }

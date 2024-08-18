@@ -13,6 +13,8 @@ function EditPost() {
             service.getPost(slug).then((post) => {
                 if(post) {
                     setPosts(post)
+                }else {
+                    console.log(`Document not present`);
                 }
             })
         }else {
@@ -20,13 +22,11 @@ function EditPost() {
         }
     },[slug, navigate])
     
-  return post ? (
-    <div className='py-8'>
-        <Container>
+    return post ? (
+        <Container className="my-32 md:my-36 px-20">
             <PostForm post={post}/>
         </Container>
-    </div>
-  ) : null
+    ) : null
 }
 
 export default EditPost
