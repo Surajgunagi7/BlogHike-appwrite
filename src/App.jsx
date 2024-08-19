@@ -7,8 +7,7 @@ import {Header,Footer, Loading} from './components'
 import { Outlet } from 'react-router-dom'
 
 import { hideLoading } from './store/loadingSlice'
-import {toggleDarkMode} from './store/darkSlice'
-
+import { Analytics } from "@vercel/analytics/react"
 function App() {
   // const [loading, setLoading] = useState(true);
   const loading = useSelector((state) => state.loading.isLoading)
@@ -41,6 +40,7 @@ function App() {
           <main>
             {loading && <Loading/>}
             <Outlet />
+            <Analytics/>
           </main>
         <Footer />
     </>
