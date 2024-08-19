@@ -1,15 +1,20 @@
 import './App.css'
 import { useState, useEffect } from 'react'
 import authService from "./appwrite/auth"
-import {useDispatch } from "react-redux"
+import {useDispatch, useSelector } from "react-redux"
 import {login, logout} from './store/authSlice'
-import {Header,Footer} from './components'
+import {Header,Footer, Loading} from './components'
 import { Outlet } from 'react-router-dom'
 
-function App() {
-  const [loading, setLoading] = useState(true);
-  const dispatch = useDispatch();
+import { hideLoading } from './store/loadingSlice'
+import {toggleDarkMode} from './store/darkSlice'
 
+function App() {
+  // const [loading, setLoading] = useState(true);
+  const loading = useSelector((state) => state.loading.isLoading)
+  const isDarkMode = useSelector((state) => state.dark.isDarkMode);
+  const dispatch = useDispatch();
+  
   useEffect(() => {
     authService.getCurrentAccount()
     .then((userData) => {
@@ -19,18 +24,27 @@ function App() {
         dispatch(logout())
       }
     })
-    .finally(() => setLoading(false))
-  },[])
+    .finally(() => dispatch(hideLoading()))
+  },[dispatch])
 
-  return !loading ? (
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
+  return (
     <>
         <Header />
           <main>
+            {loading && <Loading/>}
             <Outlet />
           </main>
         <Footer />
     </>
-  ) : null;
+  );
 }
 
 export default App

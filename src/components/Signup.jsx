@@ -34,14 +34,14 @@ function Signup() {
                     <div className='mb-4 flex justify-center text-xl font-bold sm:text-2xl'>
                         <Logo />
                     </div>
-                    <h2 className='text-center md:text-2xl font-bold leading-tight text-black sm:text-xl'>
+                    <h2 className='text-center md:text-2xl font-bold leading-tight text-black sm:text-xl dark:text-white transition-colors duration-300'>
                         Sign up to create account
                     </h2>
-                    <p className='mt-2 text-center text-xs text-gray-600 sm:text-sm'>
+                    <p className='mt-2 text-center text-xs text-gray-600 sm:text-sm dark:text-gray-300'>
                         Already have an account?&nbsp;
                         <Link
                             to='/login'
-                            className='font-semibold text-black transition-all duration-200 hover:underline hover:text-blue-600'>
+                            className='font-semibold text-black transition-all duration-200 hover:underline hover:text-blue-600 dark:text-white dark:hover:text-blue-400'>
                                 Sign In
                         </Link>
                     </p>
@@ -54,7 +54,7 @@ function Signup() {
                                     label="Name: "
                                     type="text"
                                     placeholder="Enter your Name"
-                                    className="h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                    className="h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-100 dark:placeholder:text-gray-200 dark:focus:ring-gray-200 dark:text-white transition-colors duration-300"
                                     {...register("name",{
                                         required: true,
                                     })}
@@ -63,7 +63,7 @@ function Signup() {
                                     label="Email: " 
                                     placeholder="Enter your Email" t
                                     type="email"
-                                    className="h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                    className="h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-100 dark:placeholder:text-gray-200 dark:focus:ring-gray-200 dark:text-white transition-colors duration-300"
                                     {...register("email", {
                                         required: true,
                                         validate: {
@@ -75,7 +75,7 @@ function Signup() {
                                     label="Password: "
                                     type="password"
                                     placeholder="Enter your password"
-                                    className="h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                    className="h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-100 dark:placeholder:text-gray-200 dark:focus:ring-gray-200 dark:text-white transition-colors duration-300"
                                     {...register("password",{
                                         required: true,
                                     })}

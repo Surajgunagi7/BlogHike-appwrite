@@ -12,7 +12,8 @@ import PostCard from './PostCard'
 import AuthLayout from './AuthLayout'
 import Button from './Button'
 import Input from './Input'
-
+import Loading from './Loading';
+import ThemeBtn from './ThemeBtn'
 export {
     Header,
     Footer,
@@ -28,4 +29,6 @@ export {
     Button,
     Input,
     Select,
+    Loading,
+    ThemeBtn
 }

@@ -84,10 +84,10 @@ function PostForm({post}) {
 
     return (
         <form onSubmit={handleSubmit(submit)} className='space-y-8 px-4 sm:px-6 md:px-8 lg:px-10'>
-            <Container className='border-b border-gray-300 pb-8 pt-10'>
+            <Container className='border-b border-gray-300 pb-8 pt-10 dark:border-gray-600'>
                 <div className='mb-12'>
-                    <h2 className="text-2xl font-semibold leading-8 text-gray-900">Blog</h2>
-                    <p className="mt-2 text-sm leading-6 text-gray-600">
+                    <h2 className="text-2xl font-semibold leading-8 text-gray-900 dark:text-gray-100 transition-colors duration-300">Blog</h2>
+                    <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">
                         This information will be displayed publicly, so be cautious about what you share.
                     </p>
                 </div>
@@ -96,17 +96,17 @@ function PostForm({post}) {
                     <Input 
                         label="Title :"
                         type="text"
-                        labelClass="block text-base font-medium leading-6 text-gray-900"
+                        labelClass="block text-base font-medium leading-6 text-gray-900 dark:text-gray-100"
                         placeholder="Title"
-                        className='block w-full sm:w-1/2 text-sm md:text-base p-3 border rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm'
+                        className='block w-full sm:w-1/2 text-sm md:text-base p-3 border rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm dark:bg-transparent dark:text-white transition-colors duration-300'
                         {...register("title", {required:true})}
                     />
                     <Input 
                         label="Slug :"
                         type="text"
                         placeholder="Slug"
-                        labelClass='block text-base font-medium leading-6 text-gray-900'
-                        className='block w-full sm:w-1/2 text-sm md:text-base p-3 border rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm'
+                        labelClass='block text-base font-medium leading-6 text-gray-900 dark:text-gray-100'
+                        className='block w-full sm:w-1/2 text-sm md:text-base p-3 border rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm dark:bg-transparent dark:text-white transition-colors duration-300'
                         {...register("slug", {required:true})}
                         onInput={(e) => {
                             setValue("slug",slugTransform(e.currentTarget.value),{
@@ -119,28 +119,28 @@ function PostForm({post}) {
                         name="content" 
                         control={control} 
                         defaultValue={getValues("content")} 
-                        labelClass='block text-base font-medium leading-6 text-gray-900'
+                        labelClass='block text-base font-medium leading-6 text-gray-900 dark:text-gray-100'
                         className='block w-full text-sm md:text-xl p-3 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500'
                     />
                     <Select 
                         options={["active","inactive"]}
                         label="Status: "
-                        labelClass='block text-base font-medium leading-6 text-gray-900'
-                        className="block w-full sm:w-1/2 md:w-1/3 lg:w-1/4 text-medium md:px-3 md:py-2 px-2 py-2 border rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 mb-4"
+                        labelClass='block text-base font-medium leading-6 text-gray-900 dark:text-gray-100'
+                        className="block w-full sm:w-1/2 md:w-1/3 lg:w-1/4 text-medium md:px-3 md:py-2 px-2 py-2 border rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 mb-4 dark:bg-gray-600 dark:text-white transition-colors duration-300"
                         {...register("status",{required:true})}
                     />
                     <div className='w-full sm:w-1/2 px-2'>
                         <Input 
                             label="Featured Image :"
                             type="file"
-                            className='block text-sm md:text-base p-3 pr-8 border rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm max-w-full md:max-w-96'
-                            labelClass='block text-base font-medium leading-6 text-gray-900'
+                            className='block text-sm md:text-base p-3 pr-8 border rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm max-w-full md:max-w-96 dark:text-white'
+                            labelClass='block text-base font-medium leading-6 text-gray-900 dark:text-gray-100'
                             accept="image/png, image/jpg, image/jpeg, image/gif"
                             {...register("image", {required: false})}
                         />
                         {post && post.featuredImage ? (
-                            <div className='w-full mb-4'>
-                                <img src={appwriteService.getFilePreview(post.featuredImage)} alt={post.title} className='rounded-lg' />
+                            <div className='w-full mb-4 mt-4'>
+                                <img src={appwriteService.getFilePreview(post.featuredImage)} alt={post.title} className='rounded-lg border dark:border-gray-500' />
                             </div> 
                         ): null}
                     
@@ -152,13 +152,13 @@ function PostForm({post}) {
                     bgColor=''
                     textColor='text-gray-900'
                     onClick={() => navigate('/')}
-                    className="text-sm bg-gray-200 rounded-lg md:bg-transparent font-medium leading-6 px-4 py-2 md:hover:bg-gray-200">
+                    className="text-sm bg-gray-200 rounded-lg md:bg-transparent font-medium leading-6 px-4 py-2 md:hover:bg-gray-200 dark:text-white dark:md:hover:bg-gray-600 dark:bg-gray-600 dark:md:bg-transparent">
                         Cancel
                 </Button>
                 <Button 
                     type="submit" 
-                    bgColor={post ? "bg-green-500" : 'bg-blue-500'} 
-                    className={`rounded-md px-4 py-2 text-sm font-medium text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2  ${post ? 'focus-visible:outline-green-600 hover:bg-green-500' : 'hover:bg-blue-500 focus-visible:outline-blue-600'}`}>
+                    bgColor={post ? "bg-green-500" : 'bg-blue-600'} 
+                    className={`rounded-md px-4 py-2 text-sm font-medium text-white shadow-sm  border dark:border-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2  ${post ? 'focus-visible:outline-green-600 hover:bg-green-500' : 'hover:bg-blue-500 focus-visible:outline-blue-600'}`}>
                         {post ? "Update" : "Submit"}
                 </Button>
             </div>

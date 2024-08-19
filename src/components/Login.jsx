@@ -37,14 +37,14 @@ function Login() {
                             <Logo />
                         </div>
                         <h2 
-                            className='text-center md:text-2xl font-bold leading-tight text-black sm:text-xl'>
+                            className='text-center md:text-2xl font-bold leading-tight text-black sm:text-xl dark:text-white transition-colors duration-300'>
                                 Sign in to your account 
                         </h2>
-                        <p className="mt-2 text-center text-xs text-gray-600 sm:text-sm">
+                        <p className="mt-2 text-center text-xs text-gray-600 sm:text-sm dark:text-gray-300 transition-colors duration-300">
                             Don&apos;t have any account?&nbsp;
                             <Link
                                 to='/signup'
-                                className='font-semibold text-black transition-all duration-200 hover:underline hover:text-blue-600'>
+                                className='font-semibold text-black hover:underline hover:text-blue-600 dark:text-white dark:hover:text-blue-400 transition-colors duration-300'>
                                     Create a free account
                             </Link>
                         </p>
@@ -53,7 +53,7 @@ function Login() {
                             onSubmit={handleSubmit(handleLogin)}  className='mt-6 sm:mt-8'>
                                 <Container className='space-y-4 sm:space-y-5'>
                                     <Input 
-                                        className="h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                        className="h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-100 dark:placeholder:text-gray-200 dark:focus:ring-gray-200 dark:text-white transition-colors duration-300"
                                         label="Email: " 
                                         placeholder="Enter your Email" 
                                         type="email"
@@ -65,7 +65,7 @@ function Login() {
                                         })}
                                     />
                                     <Input
-                                        className="h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                        className="h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-100 dark:placeholder:text-gray-200 dark:focus:ring-gray-200 dark:text-white transition-colors duration-300"
                                         label="password: "
                                         type="password"
                                         placeholder="Enter your password"

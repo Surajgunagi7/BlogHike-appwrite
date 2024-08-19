@@ -13,7 +13,7 @@ const Input = React.forwardRef(function Input({
         <div>
             {label && (
                 <label 
-                    className={`text-base font-medium text-gray-900 ${labelClass}`}
+                    className={`text-base font-medium text-gray-900 dark:text-gray-100 ${labelClass}`}
                     htmlFor={id}>
                         {label}
                 </label>

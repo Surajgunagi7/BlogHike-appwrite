@@ -7,9 +7,14 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins";
-    cursor: url(./assets/icons8-select-cursor-18.png),auto;
+}
+html {
+    cursor: url(./assets/icons8-select-cursor-18-white.png),auto;
 }
 
+html.dark {
+    cursor: url(./assets/icons8-select-cursor-18-black.png),auto;
+}
 #root {
     max-width: 1570px;
 }
