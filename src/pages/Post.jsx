@@ -57,12 +57,13 @@ export default function Post() {
     }
     
     return post ? (
-        <Container className="my-32 md:my-36 px-20">
+        <Container className="my-32 md:my-36 md:px-20 px-5 max-w-full overflow-hidden">
             <div className="space-y-8">
                 <img 
                     src={post.featuredImage ? service.getFilePreview(post.featuredImage) : noImage}
                     alt={post.title}
-                    className="w-full h-64 md:h-96 object-cover rounded-lg shadow-md dark:shadow-gray-500"
+                    className="w-full h-auto md:h-96 object-cover rounded-lg shadow-md dark:shadow-gray-500"
+                    style={{ maxWidth: '100%' }}
                 />
                 {isAuthor && (
                     <div className="flex space-x-4">
@@ -83,7 +84,7 @@ export default function Post() {
                 )}
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-800 dark:text-gray-100">{post.title}</h1>
 
-                <div className="prose prose-lg max-w-full text-gray-700 dark:text-gray-100">
+                <div className="prose prose-lg md:max-w-prose max-w-full text-gray-700 dark:text-gray-100 break-words overflow-x-auto">
                     {parse(post.content)}
                 </div>
             </div>

@@ -23,19 +23,19 @@ function Footer() {
                     <div className="w-full md:w-1/4 mb-6 md:mb-0">
                         <h3 className="font-medium text-xl mb-4 dark:text-white transition-colors duration-300">Follow Us</h3>
                         <div className="max-w-32 flex lg:flex-nowrap md:flex-wrap items-start gap-3">
-                            <a href="#" className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
+                            <a href="https://github.com/Surajgunagi7" target='_blank' className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
                                 <i className="ri-github-fill text-2xl"></i>
                             </a>
-                            <a href="#" className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
+                            <a href="https://www.instagram.com/_suraj_gunagi__/?igsh=MWxlZWw0OGJ6bTY5cw%3D%3D" target='_blank' className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
                                 <i className="ri-instagram-fill text-2xl"></i>   
                             </a>
-                            <a href="#" className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
+                            <a href="https://www.linkedin.com/in/suraj-gunagi" target='_blank' className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
                                 <i className="ri-linkedin-box-fill text-2xl"></i>
                             </a>
-                            <a href="#" className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
+                            <a href="https://discordapp.com/users/surajgunagi" target='_blank' className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
                                 <i className="ri-discord-fill text-2xl"></i>
                             </a>
-                            <a href="#" className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
+                            <a href="https://x.com/Suraj_Gunagi7" target="_blank" className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
                                 <i className="ri-twitter-x-fill text-2xl"></i>
                             </a>
                         </div>

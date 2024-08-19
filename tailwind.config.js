@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import typography from '@tailwindcss/typography';
+
 export default {
   content: [
     "./index.html",
@@ -9,10 +11,11 @@ export default {
     extend: {
       colors: {
         'dark-gray': '#131313',
-        'light-gray': '#282828'
-      }
+        'light-gray': '#282828',
+      },
     },
   },
-  plugins: [],
-}
-
+  plugins: [
+    typography,
+  ],
+};
