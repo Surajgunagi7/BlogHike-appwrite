@@ -5,8 +5,9 @@ import {useDispatch, useSelector } from "react-redux"
 import {login, logout} from './store/authSlice'
 import {Header,Footer, Loading} from './components'
 import { Outlet } from 'react-router-dom'
-
 import { hideLoading } from './store/loadingSlice'
+
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import { Analytics } from "@vercel/analytics/react"
 function App() {
   // const [loading, setLoading] = useState(true);
@@ -40,7 +41,7 @@ function App() {
           <main>
             {loading && <Loading/>}
             <Outlet />
-            <Analytics/>
+            <Analytics/> <SpeedInsights/>
           </main>
         <Footer />
     </>
