@@ -21,7 +21,7 @@ function Home() {
         if (currentUser) {
             setIsLoggedIn(true)
 
-            const queries = [Query.equal("status","active"), Query.equal("userId", currentUser.$id)];
+            const queries = [Query.equal("userId", currentUser.$id)];
 
             service.getPosts(queries)
                 .then((posts) => {                              
